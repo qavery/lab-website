@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications - ARGOS Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0A0F2D;
+      color: #FFFFFF;
+    }
+
+    /* Grid layout for cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+      /* ensures all cards in a row have the same height */
+    }
+
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Animations */
+    .animate-section {
+      opacity: 0;
+      transform: translateY(30px);
+      visibility: hidden;
+    }
+
+    .animate-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    /* Navbar active link */
+    .nav-link.active {
+      color: #00D4FF;
+      border-bottom: 2px solid #00D4FF;
+      padding-bottom: 4px;
+    }
+
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+    }
+
+    .card-3d {
+      /* Start flat with no rotation */
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 150px;
+      /* reduced height */
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="glassmorphism sticky top-0 z-50 backdrop-blur-md">
+    <div class="w-full flex items-center justify-between px-10 lg:px-16 py-5">
+      <a href="index.html" class="text-3xl font-extrabold text-cyan-400 hover:text-cyan-300 transition-colors">ARGOS
+        Lab</a>
+      <div class="flex items-center gap-10">
+        <a href="publications.html"
+          class="nav-link text-gray-200 hover:text-cyan-400 font-semibold transition-colors">Publications</a>
+        <a href="news.html" class="nav-link text-gray-200 hover:text-cyan-400 font-semibold transition-colors">News</a>
+        <a href="team.html" class="nav-link text-gray-200 hover:text-cyan-400 font-semibold transition-colors">Team</a>
+        <a href="contact.html"
+          class="nav-link text-gray-200 hover:text-cyan-400 font-semibold transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Publications Section -->
+  <section class="py-24 bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-white mb-12 text-center">Publications</h1>
+
+      <div class="grid">
+        <!-- Publication Card -->
+        <a href="https://arxiv.org/abs/1234.56789" class="card-link animate-section">
+          <div class="glassmorphism card-3d card-content">
+            <h3 class="text-lg font-semibold text-white mb-2">Generalizable Surgical Phase Recognition with Minimal
+              Domain Adaptation</h3>
+            <p class="text-gray-300 mb-2">Tanaka, Y., Chen, S., Rodriguez, M.</p>
+            <p class="text-gray-400 text-sm mb-3"><span class="italic">Medical Image Computing and Computer Assisted
+                Intervention (MICCAI)</span>, 2025</p>
+          </div>
+        </a>
+
+        <a href="https://arxiv.org/abs/1234.56789" class="card-link animate-section">
+          <div class="glassmorphism card-3d card-content">
+            <h3 class="text-lg font-semibold text-white mb-2">Interpretable Attention Mechanisms for Surgical Video
+              Understanding</h3>
+            <p class="text-gray-300 mb-2">Patel, A., Liu, J., Chen, S.</p>
+            <p class="text-gray-400 text-sm mb-3"><span class="italic">IEEE Transactions on Medical Imaging</span>, 2025
+            </p>
+          </div>
+        </a>
+
+        <a href="https://arxiv.org/abs/1234.56789" class="card-link animate-section">
+          <div class="glassmorphism card-3d card-content">
+            <h3 class="text-lg font-semibold text-white mb-2">Federated Learning for Privacy-Preserving Surgical AI</h3>
+            <p class="text-gray-300 mb-2">Liu, J., Kowalski, S., Rodriguez, M., Chen, S.</p>
+            <p class="text-gray-400 text-sm mb-3"><span class="italic">Nature Digital Medicine</span>, 2024</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-10 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex justify-center gap-8 mb-6">
+        <a href="https://github.com/argoslab" class="text-gray-200 hover:text-cyan-400">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+      </div>
+      <p class="text-sm">© 2025 ARGOS Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- GSAP Animations -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.querySelectorAll('.animate-section').forEach((section, index) => {
+      gsap.fromTo(section,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            onEnter: () => section.classList.add('visible')
+          },
+          delay: index * 0.15
+        });
+    });
+
+    document.querySelectorAll('.card-3d').forEach((card) => {
+      // reset transform to prevent weird initial rotation
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const rotateY = (x / rect.width) * 20;
+        const rotateX = -(y / rect.height) * 20;
+        gsap.to(card, {
+          duration: 0.3,
+          transform: `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
+          boxShadow: '0 15px 30px rgba(0, 212, 255, 0.3), 0 0 15px rgba(123, 97, 255, 0.4)'
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          duration: 0.3,
+          transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+          boxShadow: 'none'
+        });
+      });
+    });
+
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      if (window.location.pathname.includes(link.getAttribute('href'))) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+
+</html>
